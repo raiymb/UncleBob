@@ -38,14 +38,14 @@ public class FilmSelection {
 
         Information filmInformation = new Information();
 
-        filmInformation.addFilm(new Horror("The Shining", 1980, "Stanley Kubrick", 1000, "Jack Nicholson"));
-        filmInformation.addFilm(new Comedy("My name is Kozha",1963, "Abdulla Karsakbayev", 2000, "Nurlan Sanjar"));
-        filmInformation.addFilm(new Romance("Titanic", 1997, "James Cameron", 1200, "Leonardo DiCaprio"));
-        filmInformation.addFilm(new Action("Nobody", 2021, "Ilya Naishuller", 1350, "Bob Odenkirk"));
-        filmInformation.addFilm(new Drama("King Richard", 2021 ,
+        filmInformation.addFilm(new Horror("\"The Shining\"", 1980, "Stanley Kubrick", 1000, "Jack Nicholson"));
+        filmInformation.addFilm(new Comedy("\"My name is Kozha\"",1963, "Abdulla Karsakbayev", 2000, "Nurlan Sanjar"));
+        filmInformation.addFilm(new Romance("\"Titanic\"", 1997, "James Cameron", 1200, "Leonardo DiCaprio"));
+        filmInformation.addFilm(new Action("\"Nobody\"", 2021, "Ilya Naishuller", 1350, "Bob Odenkirk"));
+        filmInformation.addFilm(new Drama("\"King Richard\"", 2021 ,
                 "Reinaldo Marcus Green", 1700, "Will Smith"));
-        filmInformation.addFilm(new Drama("Make it in 18 seconds", 2023, "Industrial Development Fund", 1450, "Maksat"));
-        filmInformation.addFilm(new Fantasy("The Hobbit: An Unexpected Journey",2012,
+        filmInformation.addFilm(new Drama("\"Make it in 18 seconds\"", 2023, "Industrial Development Fund", 1450, "Maksat"));
+        filmInformation.addFilm(new Fantasy("\"The Hobbit: An Unexpected Journey\"",2012,
                 "Peter Jackson", 1500, "Martin Freeman"));
 
         System.out.println("Select a film:");
