@@ -6,31 +6,51 @@ public abstract class Film implements FilmInformation {
     private double price;
 
     public Film(String title, int releaseYear, String genre, String director, double price) {
-        this.title = title;
-        this.releaseYear = releaseYear;
-        this.genre = genre;
-        this.director = director;
-        this.price = price;
+        setTitle(title);
+        setReleaseYear(releaseYear);
+        setGenre(genre);
+        setDirector(director);
+        setPrice(price);
     }
 
-    public String getTitle() {
+     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public int getReleaseYear() {
         return releaseYear;
     }
 
+    public void setReleaseYear(int releaseYear) {
+        this.releaseYear = releaseYear;
+    }
+
     public String getGenre() {
         return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public String getDirector() {
         return director;
     }
 
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
     public double getPrice() {
         return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     @Override
