@@ -30,7 +30,7 @@ public abstract class Film implements FilmInformation {
             System.err.println("Invalid release year: " + releaseYear);
             throw new IllegalArgumentException("Release year must be greater than 0");
         }
-        this.releaseYear = Year.of(releaseYear);
+        this.releaseYear = releaseYear;
     }
 
     public String getGenre() {
