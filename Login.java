@@ -28,25 +28,4 @@ public class Login {
             return false;
         }
     }
-
-    public void register() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter a new username: ");
-        String newUsername = scanner.nextLine();
-
-        System.out.print("Enter a new password: ");
-        String newPassword = scanner.nextLine();
-
-        try {
-            // Connect to the database
-            Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "raimbek99");
-
-            // Insert the new user's credentials into the database
-            Statement statement = connection.createStatement();
-            statement.executeUpdate("INSERT INTO users (username, password) VALUES ('" + newUsername + "', '" + newPassword + "')");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 }
