@@ -1,9 +1,9 @@
-package com.ab;
-
 import java.util.Scanner;
 
 public class FilmSelection {
     public static void main(String[] args) {
+        String username;
+        String password;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Film Store! Please, authorize to your account:");
         System.out.println("1. Login");
@@ -12,42 +12,38 @@ public class FilmSelection {
         int choice = scanner.nextInt();
         scanner.nextLine();
         switch (choice) {
-            case 1:
-            {
-               System.out.print("Enter username: ");
-               String username = scanner.nextLine();
-               System.out.print("Enter password: ");
-               String password = scanner.nextLine();
+            case 1 -> {
+                System.out.print("Enter username: ");
+                username = scanner.nextLine();
+                System.out.print("Enter password: ");
+                password = scanner.nextLine();
 
-               Login login = new Login(username, password);
-               if (!login.login()) {
-                   System.out.println("Invalid username or password.");
-                   return;  }
-               else {
-                   System.out.println("Login successful\n");
-               }
-               break;
+                Login login = new Login(username, password);
+                if (!login.login()) {
+                    System.out.println("Invalid username or password.");
+                    return;
+                } else {
+                    System.out.println("Login successful\n");
+                }
             }
-           case 2:
-           {
-               System.out.print("Enter username: ");
-               String username = scanner.nextLine();
-               System.out.print("Enter password: ");
-               String password = scanner.nextLine();
+            case 2 -> {
+                System.out.print("Enter username: ");
+                username = scanner.nextLine();
+                System.out.print("Enter password: ");
+                password = scanner.nextLine();
 
-               Register register = new Register(username, password);
-                   if (!register.register()) {
-                       System.out.println("Username already taken. Please try again.");
-                       return;
-                   }
-                   else {
-                       System.out.println("Registration successful.\n");
-                   }
-               break;
-           }
-            default:
+                Register register = new Register(username, password);
+                if (!register.register()) {
+                    System.out.println("Username already taken. Please try again.");
+                    return;
+                } else {
+                    System.out.println("Registration successful.\n");
+                }
+            }
+            default -> {
                 System.out.println("Invalid option, please try again.");
                 return;
+            }
         }
 
 
@@ -119,6 +115,27 @@ public class FilmSelection {
                         System.out.println("Invalid option, please try again\n");
                         break;}
                 }
+                case 2:
+                    Login login = new Login(username, password);
+                    double balance = login.showBalance();
+                    if (balance != -1) {
+                        System.out.println("Your current balance is: ₸" + balance);
+                    } else {
+                        System.out.println("Failed to retrieve balance.");
+                    }
+                    break;
+
+                case 3:
+                    System.out.print("Enter amount to add: ");
+                    double amount = scanner.nextDouble();
+                    scanner.nextLine();
+                    Login login1 = new Login(username, password);
+                    if (login1.addBalance(amount)) {
+                        System.out.println("Balance added successfully.");
+                    } else {
+                        System.out.println("Failed to add balance.");
+                    }
+                    break;
                 case 4: {
                     System.out.println("Select a genre:");
                     System.out.println("1.Comedy");
@@ -184,31 +201,40 @@ public class FilmSelection {
                     }
                 }
                 case 5:
-                {
-                    int i=0;
-                    System.out.println("Films in your cart:");
-                    if (cart.getCart().size()==0) {
-                        System.out.println("Your cart is empty.\n");
-                        break;}
-                    for(Film film : cart.getCart()) {
-                        System.out.println((i+1)+"."+film.getTitle() );
-                        i++;
-                    }
-                    System.out.print("\nSelect the film you want to remove:");
-                    choice = scanner.nextInt();
-                    scanner.nextLine();
-                    System.out.println();
-                    if (choice > cart.getCart().size()) {
-                        System.out.println("\nInvalid option, please try again.\n");
+                    if (cart.isCartEmpty()) {
+                        System.out.println("Cart is empty.");
                         break;
                     }
-                    Film selectedFilm = cart.getCart().get(choice - 1);
-                    cart.removeFromCart(selectedFilm);
-                    System.out.println(selectedFilm.getTitle() + " is removed from your cart!");
-                    System.out.println();
+                    System.out.println("Enter the title of the movie to remove from the cart:");
+                    String title = scanner.nextLine();
+                    Film filmToRemove = null;
+                    for (Film film : cart.getCart()) {
+                        if (film.getTitle().equals(title)) {
+                            filmToRemove = film;
+                            break;
+                        }
+                    }
+                    if (filmToRemove != null) {
+                        cart.removeFromCart(filmToRemove);
+                        System.out.println("Movie removed from cart.");
+                    } else {
+                        System.out.println("Movie not found in cart.");
+                    }
                     break;
-
-                }
+                case 6:
+                    if (cart.isCartEmpty()) {
+                        System.out.println("Cart is empty.");
+                        break;
+                    }
+                    double totalPrice = cart.getTotalPrice();
+                    Payment payment = new Payment(username, totalPrice);
+                    if (payment.makePayment()) {
+                        System.out.printf("Successfully bought movies for ₸%.2f. Enjoy your purchase!\n", totalPrice);
+                        cart.clearCart();
+                    } else {
+                        System.out.println("Failed to make payment.");
+                    }
+                    break;
                 case 7:
                     System.exit(0);
                 default:
