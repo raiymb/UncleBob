@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class FilmSelection {
+    
     public static void main(String[] args) {
         String username;
         String password;
@@ -49,22 +50,45 @@ public class FilmSelection {
 
         FilmList comedy = new FilmList();
         comedy.addFilm(new Comedy("My name is Kozha",1963, "Abdulla Karsakbayev", 2000, "Nurlan Sanjar"));
+        comedy.addFilm(new Comedy("Home Alone",1990, "Chris Columbus",1600,"Macaulay Culkin"));
+        comedy.addFilm(new Comedy("The Wolf of Wall Street",2013,"Martin Scorsese",2500,"Leonardo DiCaprio"));
+        comedy.addFilm(new Comedy("Rush Hour",1998,"Brett Ratner",1900,"Jackie Chan"));
+        comedy.addFilm(new Comedy("Shrek",2001,"Andrew Adamson",1000,"Mike Myers"));
 
         FilmList romance = new FilmList();
         romance.addFilm(new Romance("Titanic", 1997, "James Cameron", 1200, "Leonardo DiCaprio"));
+        romance.addFilm(new Romance("Her",2013,"Spike Jonze",1400,"Joaquin Phoenix"));
+        romance.addFilm(new Romance("La La Land",2016,"Damien Chazelle",1500,"Ryan Gosling"));
+        romance.addFilm(new Romance("Casablanca",1942,"Michael Curtiz",1000,"Humphrey Bogart"));
+        romance.addFilm(new Romance("Your Name",2016,"Makoto Shinkai",1600,"Ryūnosuke Kamiki"));
 
         FilmList action = new FilmList();
-        action.addFilm(new Action("Nobody", 2021, "Ilya Naishuller", 1350, "Bob Odenkirk"));
+        action.addFilm(new Action("Avatar",2009,"James Cameron",2500,"Sam Worthington"));
+        action.addFilm(new Action("Inglourious Basterds",2009,"Quentin Tarantino",2000,"Brad Pitt"));
+        action.addFilm(new Action("The Dark Knight",2008,"Christopher Nolan",2200,"Christian Bale"));
+        action.addFilm(new Action("Transformers",2007,"Michael Bay",1300,"Shia LaBeouf"));
+        action.addFilm(new Action("Avengers: Endgame",2019,"Russo Brothers",2400,"Robert Downey Jr."));
 
         FilmList drama = new FilmList();
-        drama.addFilm(new Drama("King Richard", 2021 , "Reinaldo Marcus Green", 1700, "Will Smith"));
-        drama.addFilm(new Drama("Make it in 18 seconds", 2023, "Industrial Development Fund", 1450, "Maksat"));
+        drama.addFilm(new Drama("The Shawshank Redemption",1994,"Frank Darabont",1000,"Tim Robbins"));
+        drama.addFilm(new Drama("Forrest Gump",1994,"Robert Zemeckis",1800,"Tom Hanks"));
+        drama.addFilm(new Drama("Godfather",1972,"Francis Ford Coppola",1500,"Marlon Brando"));
+        drama.addFilm(new Drama("Interstellar",2014,"Christopher Nolan",2600,"Matthew McConaughey"));
+        drama.addFilm(new Drama("Make it in 18 seconds", 2023, "Industrial Development Fund", 1450, "Maksat Adilbaev"));
 
         FilmList fantasy = new FilmList();
-        fantasy.addFilm(new Fantasy("The Hobbit: An Unexpected Journey",2012, "Peter Jackson", 1500, "Martin Freeman"));
+        fantasy.addFilm(new Fantasy("The Lord of the Rings: The Return of the King",2003, "Peter Jackson", 1500, "Elijah Wood"));
+        fantasy.addFilm(new Fantasy("Harry Potter and the Prisoner of Azkaban",2004,"Alfonso Cuaron",2000,"Daniel Radcliffe"));
+        fantasy.addFilm(new Fantasy("The Empire Strikes Back",1980,"Irvin Kershner",1400,"Mark Hamill"));
+        fantasy.addFilm(new Fantasy("Groundhog Day",1993,"Harold Ramis",1000,"Bill Murray"));
+        fantasy.addFilm(new Drama("The Green Mile",1999,"Frank Darabont",1900,"Tom Hanks"));
 
         FilmList horror = new FilmList();
         horror.addFilm(new Horror("The Shining", 1980, "Stanley Kubrick", 1000, "Jack Nicholson"));
+        horror.addFilm(new Horror("The Silence of the Lambs",1991,"Jonathan Demme",2200,"Jodie Foster"));
+        horror.addFilm(new Horror("Saw",2004,"James Wan",1900,"Cary Elwes"));
+        horror.addFilm(new Horror("Scream",1996,"Wes Craven",1500,"David Arquette"));
+        horror.addFilm(new Horror("Friday the 13th",1980,"Sean S. Cunningham",1200,"Betsy Palmer"));
 
         GenreList genres = new GenreList();
         genres.addGenre(comedy);
@@ -77,8 +101,7 @@ public class FilmSelection {
         Cart cart = new Cart();
 
         System.out.println();
-        boolean a = true;
-        while (a) {
+        while (true) {
             System.out.println("Select an option");
             System.out.println("1.Check the cart");
             System.out.println("2.Check your balance");
