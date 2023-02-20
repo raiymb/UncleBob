@@ -116,10 +116,10 @@ public class FilmSelection {
                         break;}
                 }
                 case 2:
-                    Login login = new Login(username, password);
-                    double balance = login.showBalance();
-                    if (balance != -1) {
-                        System.out.println("Your current balance is: ₸" + balance);
+                    Balance balance = new Balance(username);
+                    double userBalance = balance.show();
+                    if (userBalance != -1) {
+                        System.out.println("Your current balance is: " + userBalance+"₸");
                     } else {
                         System.out.println("Failed to retrieve balance.");
                     }
@@ -129,8 +129,8 @@ public class FilmSelection {
                     System.out.print("Enter amount to add: ");
                     double amount = scanner.nextDouble();
                     scanner.nextLine();
-                    Login login1 = new Login(username, password);
-                    if (login1.addBalance(amount)) {
+                    Balance balance1 = new Balance(username);
+                    if (balance1.add(amount)) {
                         System.out.println("Balance added successfully.");
                     } else {
                         System.out.println("Failed to add balance.");
