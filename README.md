@@ -1,5 +1,5 @@
 # UncleBob
-The Film Magazine, is a film website where you need login or register to the website, and choose a film from the given list.
+The Film Store, is a website where you need login or register to the website, and choose a film from the given list.
 After that, it will give the description of the film.
 # Requirements:
 Java 8 or higher;
