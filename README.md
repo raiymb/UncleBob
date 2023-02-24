@@ -7,4 +7,4 @@ PostgreSQL;
 # Usage
 The program will display the following menu upon starting:
 If the user selects 1. Login, they will be prompted to enter their username and password. The system will check the entered credentials against the database and either allow the user to select a film or display an error message.
-If the user selects 2. Register, they will be prompted to enter a new username and password. The system will add the new user to the database.
+If the user selects 2 Register, they will be prompted to enter a new username and password. The system will add the new user to the database.
